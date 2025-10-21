@@ -1,50 +1,92 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 1.2.1 → 1.2.2 (PATCH: Optimize manifest.json definition, enhance readability)
+- Modified principles: 
+  - II. ONES Platform Priority & Manifest-Driven Development: Added manifest.json definition explanation
+- Added sections: None
+- Removed sections: None
+- Templates requiring updates: None (only optimized wording)
+- Follow-up TODOs: None
+- Project adaptation: Code changes restricted to `my-new-project/` directory only
+-->
+
+# ONES App Development Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. ONES App Design Pattern (Non-negotiable)
+The goal is to implement ONES App. ONES Apps are plugin-style integrations, not independent services; user operations are completely within the ONES interface, with Apps implementing functionality through event responses and OpenAPI calls; unless absolutely necessary, must not create custom APIs that users need to call; prioritize ONES extension points if you want to implement a custom interface; Apps should be transparent to users, with users perceiving no additional complexity.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. ONES Platform Priority & Manifest-Driven Development
+`manifest.json` is the information provided to the ONES open platform for App installation and is the single source of truth for application capabilities; every feature must explicitly reference the corresponding ONES capability configuration in `manifest.json`; all ONES capability declarations must be correctly configured in the manifest; the manifest must pass official schema validation; version updates must synchronously update the manifest; all non-ONES related features must be clearly identified and independent of ONES integration; applications must follow ONES application lifecycle management specifications.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Specification Consultation Priority (Non-negotiable)
+Before starting any design or development work, must consult the `/Users/malvin/Coding/appbuilder/ones-specs` directory to validate requirements; select appropriate OpenAPI/Event/Extension/Web SDK capabilities; verify field details; if requirements cannot be mapped to known capabilities or remain unclear after reviewing documentation, must stop the process and seek clarification rather than making assumptions.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Incremental Development & Tech Stack Constraints (Non-negotiable)
+- All code changes MUST occur only under the `my-new-project/` directory; modifying platform templates or upper-level scripts is prohibited.
+- Introduction of new tech stacks/frameworks/runtimes beyond the existing ones is strictly prohibited; allowed stacks: NestJS (backend), React+Vite (frontend), TypeORM, TypeScript, SQLite.
+- Changes MUST be incremental with backward compatibility favored; avoid large-scale refactors. For breaking changes, first complete impact analysis and migration plan and obtain governance approval.
+- New third-party dependencies MUST justify necessity, compatibility with the existing stack, and security, and pass governance review.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+## Development Workflow
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### ONES Open Platform Capability Validation (Mandatory Prerequisite)
+- Before starting any design or development work, must complete the full ONES capability validation process
+- Consult `/Users/malvin/Coding/appbuilder/ones-specs` directory to determine specific capabilities
+- Generate `ones-capabilities.md` document to record specific ONES capabilities used
+- Update `research.md` to include specific ONES capability information (event types, API endpoints, field IDs, etc.)
+- Update `contracts/openapi.yaml` to conform to ONES official specifications
+- Run `.specify/scripts/bash/validate-ones-capabilities.sh` to verify compliance
+- Complete all ONES capability validation checkpoints in the planning phase (see `.specify/templates/plan-template.md`)
+- If requirements cannot be mapped to known capabilities, must stop and seek clarification
+- Prohibit development based on assumptions; all implementations must be based on official documentation and specific capability mappings
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Technology Stack Requirements
+- Backend must use NestJS framework
+- Frontend must use React + Vite
+- Database uses TypeORM + SQLite (development) / PostgreSQL (production)
+- Authentication uses JWT + jsonwebtoken
+- All code must use TypeScript
+- Prohibit introduction of other tech stacks/frameworks/runtimes; if necessary, obtain governance approval.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Code Quality
+- All code must pass ESLint and Prettier checks
+- Implement unit tests and integration tests (Jest)
+- Use TypeScript for type safety
+- Follow ONES development best practices
+- Controllers must implement appropriate error handling and logging
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Testing Strategy
+- Must test all ONES integration points
+- Implement mock ONES environment for testing
+- Test event handling and retry mechanisms
+- Verify manifest configuration correctness
+
+### Deployment and Monitoring
+- Implement health check endpoints
+- Log all critical operations
+- Monitor application performance and error rates
+- Implement automatic rollback mechanisms
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Version Management
+- Use semantic versioning
+- Major changes must update the major version number
+- Maintain backward compatibility
+- Provide migration guides
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Documentation Requirements
+- All ONES integrations must be documented
+- Provide API documentation and examples
+- Maintain change logs
+- Provide troubleshooting guides
+
+### Compliance Review
+- All PRs must verify manifest configuration
+- Security review is mandatory
+- Performance impact must be assessed
+- Must pass ONES schema validation
+
+**Version**: 1.2.2 | **Approved**: 2024-12-19 | **Last Revised**: 2025-10-20
