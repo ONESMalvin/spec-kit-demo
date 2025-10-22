@@ -84,28 +84,25 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to modify feature configuration"]
-- **FR-002**: System MUST [specific capability, e.g., "validate feature configuration"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "visualize feature configuration"]
-- **FR-004**: System MUST [data requirement, e.g., "persist feature configuration"]
-- **FR-005**: System MUST [behavior, e.g., "log all user actions"]
+**MANDATORY**: At most THREE functional requirements only.
 
-*Example of marking unclear requirements:*
-
-- **FR-006**: Provide configuration page [NEEDS CLARIFICATION: feature configuration method not specified - Existing ONES interface configuration or App extension setting page configuration?]
-- **FR-007**: System MUST retain user configuration for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-001**: System MUST [core action]
+- **FR-002**: System MUST [basic validation]
+- **FR-003**: System MUST [simple data handling]
 
 ### Key Entities *(include if feature involves data)*
+
+**MANDATORY**: Required key entities only.
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]
 - **[Entity 2]**: [What it represents, relationships to other entities]
 
 ### ONES App Integration *(mandatory for ONES Apps)*
 
-- **User Interaction**: [How users interact with the feature - should be through ONES interface or App Extensions]
-- **Event Handling**: [Which ONES events the app listens to]
-- **OpenAPI Usage**: [Which ONES OpenAPI endpoints the app calls]
-- **Extension Points**: [Which ONES App extensions are used, if any]
+- **User Interaction**: Users interact through existing ONES interface
+- **Event Handling**: App listens to [specific ONES event]
+- **OpenAPI Usage**: App calls [specific ONES OpenAPI endpoint]
+- **Extension Points**: [Basic ONES App extension if needed]
 
 ## Success Criteria *(mandatory)*
 
@@ -116,8 +113,20 @@
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "App responds to events to complete the corresponding function"]
-- **SC-002**: [Measurable metric, e.g., "App retries through ONES OpenAPI to ensure data consistency"]
-- **SC-003**: [User satisfaction metric, e.g., "User satisfaction: the feature is clear and easy to use"]
-- **SC-004**: [Business metric, e.g., "Differentiated implementation of specific business processes through App Extensions"]
+**MANDATORY**: Maximum 3 success criteria only.
 
+- **SC-001**: [Basic functionality metric]
+- **SC-002**: [Basic error handling metric]
+- **SC-003**: [Basic logging metric]
+
+## Assumptions
+
+- [Basic assumption about ONES platform]
+- [Simple assumption about user behavior]
+- [Basic assumption about data structure]
+
+## Simplifications Made
+
+**MANDATORY**: Document what was simplified from the original request.
+
+- [Original complex requirement] → [Simplified to basic action]

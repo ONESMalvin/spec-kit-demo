@@ -29,6 +29,37 @@ Before starting any design or development work, must consult the `/Users/malvin/
 - Changes MUST be incremental with backward compatibility favored; avoid large-scale refactors. For breaking changes, first complete impact analysis and migration plan and obtain governance approval.
 - New third-party dependencies MUST justify necessity, compatibility with the existing stack, and security, and pass governance review.
 
+
+### V. SIMPLICITY ENFORCEMENT (NON-NEGOTIABLE)
+
+**MANDATORY SIMPLICITY**: All implementations MUST be Simple Script Level only.
+
+#### Forbidden Complexity
+- More than three user stories or personas
+- Complex error handling or retry mechanisms
+- Concurrent processing
+- Multi-level data hierarchies
+- Performance optimization requirements
+- Advanced security implementations
+- Complex UI components
+- Integration with more than one external system
+
+#### Required Simplicity
+- At most three user stories only
+- Basic event → action pattern
+- Minimal error handling (try/catch only)
+- Simple data flow (read → process → update)
+- No complex dependencies or frameworks
+
+#### Simplification Process
+When user requests complex features:
+1. Extract the core single action
+2. Remove all complexity indicators
+3. Implement only the basic use case
+4. Document simplifications in assumptions
+
+**VIOLATION**: Any attempt to implement complex features will result in ERROR and request for simplification.
+
 ## Development Workflow
 
 ### ONES Open Platform Capability Validation (Mandatory Prerequisite)

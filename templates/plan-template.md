@@ -5,7 +5,7 @@
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
 
-**ONES Integration**: This template includes mandatory ONES capability validation to ensure all ONES app features are based on official platform capabilities.
+**Project Integration**: This template includes capability validation to ensure all features are based on appropriate platform capabilities and integration patterns.
 
 ## Summary
 
@@ -27,7 +27,7 @@
   the iteration process.
 -->
 
-**Project Type**: [automation/system-integration/batch-processing/other - determine project type]  
+**Project Type**: [Workflow/Automation/Batch Processing/System Integration - determine project type]  
 **Performance Goals**: [performance goals, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
 **Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory or NEEDS CLARIFICATION]  
 **Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
@@ -66,31 +66,33 @@
 - [ ] Incremental changes are used and backward compatibility is maintained; destructive changes come with migration and impact assessment (if applicable)
 
 **ONES App Design Check**: 
-- [Good Design]Are user operations completely within ONES interface?
-- [Good Design]The functionality that is triggered by user operations in ONES native interface is primarily implemented through listening to ONES events and responding (not custom APIs)?
-- [Good Design]Data updates in ONES are completed by calling ONES OpenAPI?
-- [Good Design]Are ONES App Extension points prioritized?
-- [Bad Design]If custom APIs that users need to call are created, must explain why absolutely necessary?
+- [Good Design] **Workflow**: Are workflow steps clearly defined and state transitions logical?
+- [Good Design] **Automation**: Are automation triggers and actions well-defined?
+- [Good Design] **Batch Processing**: Are data processing steps efficient and error-handled?
+- [Good Design] **System Integration**: Are integration points clearly defined and secure?
+- [Bad Design] If complex custom logic is created, must explain why absolutely necessary?
 
-**Detailed ONES App Design Checklist** (Reference: `.specify/templates/ones-app-design-checklist.md`):
+**Detailed Project Design Checklist** (adapt to project type):
 
-### Core Design Principles
-- [ ] User operations completely within ONES interface
-- [ ] Prioritize using ONES App Extension points to add new pages for users to use
-- [ ] The functionality that is triggered by user operations in ONES native interface is primarily implemented through listening to ONES events and responding (not custom APIs)
-- [ ] Data updates in ONES are completed by calling ONES OpenAPI
+### Core Design Principles (adapt to project type)
+- [ ] **Workflow**: Clear workflow definition, state management, trigger mechanisms
+- [ ] **Automation**: Efficient automation logic, proper scheduling, error handling
+- [ ] **Batch Processing**: Efficient data processing, proper file handling, error recovery
+- [ ] **System Integration**: Secure integration, proper data mapping, error handling
 
-### Data Flow Design
-- [ ] Significant Data flow 1: User operation → ONES event → App processing → ONES OpenAPI call
-- [ ] Significant Data flow 2: User operation → App page → ONES OpenAPI call
-- [ ] Configuration Data flow: User operation → App page → App custom API call → App storage
-- [ ] Does not create storage that duplicates ONES data
+### Data Flow Design (adapt to project type)
+- [ ] **Workflow**: Trigger → Workflow Engine → State Update
+- [ ] **Automation**: Event → Automation Logic → Action Execution
+- [ ] **Batch Processing**: Data Source → Processing Pipeline → Data Output
+- [ ] **System Integration**: External System → Integration Logic → Target System
+- [ ] Does not create unnecessary data duplication
 
-### Design Decision Validation
-- [ ] Can functionality be implemented by listening to ONES events?
-- [ ] Can data updates be completed by calling ONES OpenAPI?
-- [ ] Is custom user interface creation necessary?
-- [ ] Is storage only for necessary audit or configuration data (not duplicating ONES data)?
+### Design Decision Validation (adapt to project type)
+- [ ] **Workflow**: Can workflow be implemented with standard workflow engine?
+- [ ] **Automation**: Can automation be implemented with standard automation tools?
+- [ ] **Batch Processing**: Can processing be implemented with standard data tools?
+- [ ] **System Integration**: Can integration be implemented with standard integration patterns?
+- [ ] Is custom logic only for necessary business rules (not standard functionality)?
 
 [Gates determined based on constitution file]
 
@@ -102,11 +104,11 @@
 specs/[###-feature]/
 ├── plan.md              # This file (/speckit.plan command output)
 ├── research.md          # Phase 0 output (/speckit.plan command)
-├── ones-capabilities.md # ONES capability mapping (mandatory for ONES apps)
+├── platform-capabilities.md # Platform capability mapping (adapt to project type)
 ├── data-model.md        # Phase 1 output (/speckit.plan command)
 ├── quickstart.md        # Phase 1 output (/speckit.plan command)
 ├── contracts/           # Phase 1 output (/speckit.plan command)
-│   └── openapi.yaml     # API contracts (must conform to ONES spec)
+│   └── api.yaml         # API contracts (adapt to project type)
 ├── checklists/          # Quality checklists
 │   └── requirements.md  # Specification quality checklist
 └── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
@@ -131,7 +133,7 @@ web/
 
 ```
 
-**Structure Decision**: Choose a single project structure, because this is a ONES app.
+**Structure Decision**: Choose appropriate ONES App project structure based on project type (Workflow/Automation/Batch Processing/System Integration).
 
 ## Complexity Tracking
 

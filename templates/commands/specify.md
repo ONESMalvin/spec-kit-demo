@@ -13,6 +13,40 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## SIMPLICITY ENFORCEMENT (MANDATORY)
+
+**CRITICAL**: This framework ONLY supports Simple Script Level implementations. All features MUST be simplified to basic automation patterns.
+
+### Forbidden Complexity Patterns
+- ❌ More than three user stories or personas
+- ❌ Complex error handling or retry mechanisms  
+- ❌ Concurrent processing
+- ❌ Multi-level hierarchies or complex data relationships
+- ❌ Performance requirements or scalability concerns
+- ❌ Advanced security or compliance requirements
+- ❌ Complex UI components or custom interfaces
+- ❌ Integration with more than one external system
+
+### Required Simplification Rules
+1. **At most three user stories only**: Convert all requirements into ONE simple user story
+2. **Basic event → action pattern**: User does X → System does Y
+3. **Minimal error handling**: Basic try/catch, no retry mechanisms
+4. **Simple data flow**: Read data → Calculate → Update data
+5. **No complex dependencies**: Avoid multi-step workflows
+
+### Simplification Process
+If user input contains complexity indicators:
+1. **Extract Core Action**: Identify the single main action
+2. **Remove Complexity**: Strip out bulk operations, error handling, etc.
+3. **Simplify Scope**: Focus on the most basic use case
+4. **Document Assumptions**: Note what was simplified in Assumptions section
+
+### Example Simplifications
+- "Handle bulk updates with retry mechanisms" → "Update single record when changed"
+- "Support multi-level hierarchies" → "Support single level hierarchy"  
+- "Concurrent user handling" → "Single user operation"
+- "Advanced error recovery" → "Basic error logging"
+
 ## Outline
 
 The text the user typed after `/speckit.specify` in the triggering message **is** the feature description. Assume you always have it available in this conversation even if `{ARGS}` appears literally below. Do not ask the user to repeat it unless they provided an empty command.
@@ -60,14 +94,19 @@ Given that feature description, do this:
        - **LIMIT: Maximum 3 [NEEDS CLARIFICATION] markers total**
        - Prioritize clarifications by impact: scope > user experience > technical details
     4. Fill User Scenarios & Testing section
+      **MANDATORY**: Create at most THREE user stories only
+       Extract the core action from user requirements and simplify to basic automation
        If no clear user flow: ERROR "Cannot determine user scenarios"
     5. Generate Functional Requirements
-       Each requirement must be testable
+      **MANDATORY**: Create at most THREE user stories only
+       Each requirement must be testable and unambiguous
        Use reasonable defaults for unspecified details (document assumptions in Assumptions section)
     6. Define Success Criteria
+      **MANDATORY**: Create at most THREE success criteria only
        Create measurable, technology-agnostic outcomes
        Each criterion must be verifiable without implementation details
     7. Identify Key Entities (if app's own storage data is involved, not ONES data)
+      **MANDATORY**: Required key entities only
     8. Return: SUCCESS (spec ready for planning)
 
 5. Write the specification to SPEC_FILE using the template structure, replacing placeholders with concrete details derived from the feature description (arguments) while preserving section order and headings.
@@ -168,9 +207,7 @@ Given that feature description, do this:
 
 **NOTE:** The script creates and checks out the new branch and initializes the spec file before writing.
 
-## General Guidelines
-
-## Quick Guidelines
+## Guidelines
 
 - Focus on **WHAT** users need and **WHY**.
 - Avoid HOW to implement (no tech stack, APIs, code structure).

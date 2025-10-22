@@ -13,6 +13,41 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## SIMPLIFIED TASK TEMPLATE (MANDATORY)
+
+**CRITICAL**: ALL features MUST use this simplified template. 6-10 tasks total (8 tasks ± 2).
+
+### Phase 1: Setup (2 tasks)
+- [ ] T001 Review and verify project structure in my-new-project/
+- [ ] T002 Configure manifest.json for ONES App configuration in my-new-project/manifest.json
+
+### Phase 2: Core Implementation (4 tasks)
+- [ ] T003 [P] Create core service/component in my-new-project/src/services/
+- [ ] T004 [P] Implement main processing logic in my-new-project/src/services/
+- [ ] T005 [P] Create data handling service in my-new-project/src/services/
+- [ ] T006 [P] Add basic error handling in my-new-project/src/services/
+
+### Phase 3: Integration (2 tasks)
+- [ ] T007 [P] Wire components together in my-new-project/src/
+- [ ] T008 [P] Add basic logging in my-new-project/src/
+
+**TOTAL: 6-10 tasks (8 tasks ± 2) - flexible based on project complexity**
+
+### Supported Project Types
+- ✅ **Workflow**: workflow automation, task scheduling, trigger mechanisms
+- ✅ **Automation**: automation script,定时任务、触发机制
+- ✅ **Batch Processing**: batch data processing, file processing, data conversion
+- ✅ **System Integration**: external system integration, API integration, data synchronization
+
+### Forbidden Task Types
+- ❌ Complex data modeling tasks
+- ❌ Advanced error handling tasks
+- ❌ Performance optimization tasks
+- ❌ Security implementation tasks
+- ❌ Testing framework setup tasks
+- ❌ Deployment configuration tasks
+- ❌ Monitoring and alerting tasks
+
 ## Outline
 
 1. **Setup**: Run `{SCRIPT}` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
@@ -22,37 +57,35 @@ You **MUST** consider the user input before proceeding (if not empty).
    - **Optional**: data-model.md (entities), contracts/ (API endpoints), research.md (decisions), quickstart.md (test scenarios)
    - Note: Not all projects have all documents. Generate tasks based on what's available.
 
-3. **Execute task generation workflow**:
+3. **Execute simplified task generation workflow**:
    - Load plan.md and extract tech stack, libraries, project structure
    - Load spec.md and extract user stories with their priorities (P1, P2, P3, etc.)
-   - If data-model.md exists: Extract entities and map to user stories
-   - If contracts/ exists: Map endpoints to user stories
-   - If research.md exists: Extract decisions for setup tasks
-   - Generate tasks organized by user story (see Task Generation Rules below)
-   - Generate dependency graph showing user story completion order
-   - Create parallel execution examples per user story
-   - Validate task completeness (each user story has all needed tasks, independently testable)
+   - **MANDATORY**: Generate tasks using the SIMPLIFIED TASK TEMPLATE above
+   - **CRITICAL**: 6-10 tasks total (8 tasks ± 2) - flexible based on project complexity
+   - **Identify project type**: Determine if it's type of workflow/automation/batch-processing/system-integration
+   - Map user stories to the 3-phase structure: Setup (2 tasks) → Core Implementation (4 tasks) → Integration (2 tasks)
+   - Adapt task descriptions based on project type (workflow steps, automation triggers, batch processing, integration endpoints)
+   - Ensure all tasks follow the simplified checklist format
+   - Focus on essential functionality only - avoid complex features
 
-4. **Generate tasks.md**: Use `.specify/templates/tasks-template.md` as structure, fill with:
+4. **Generate tasks.md**: Use the SIMPLIFIED TASK TEMPLATE structure, fill with:
    - Correct feature name from plan.md
-   - Phase 1: Setup tasks (project initialization)
-   - Phase 2: Foundational tasks (blocking prerequisites for all user stories)
-   - Phase 3+: One phase per user story (in priority order from spec.md)
-   - Each phase includes: story goal, independent test criteria, tests (if requested), implementation tasks
-   - Final Phase: Polish & cross-cutting concerns
-   - All tasks must follow the strict checklist format (see Task Generation Rules below)
+   - **Identify project type**: Workflow/Automation/Batch Processing/System Integration
+   - **Phase 1: Setup (2 tasks)** - Project structure and configuration
+   - **Phase 2: Core Implementation (4 tasks)** - Essential services and logic (adapt to project type)
+   - **Phase 3: Integration (2 tasks)** - Wire components and add logging
+   - All tasks must follow the simplified checklist format
    - Clear file paths for each task
-   - Dependencies section showing story completion order
-   - Parallel execution examples per story
-   - Implementation strategy section (MVP first, incremental delivery)
+   - **Adapt descriptions**: Use appropriate terminology for project type
+   - **NO complex features**: Avoid forbidden task types listed above
 
 5. **Report**: Output path to generated tasks.md and summary:
-   - Total task count
-   - Task count per user story
-   - Parallel opportunities identified
-   - Independent test criteria for each story
-   - Suggested MVP scope (typically just User Story 1)
-   - Format validation: Confirm ALL tasks follow the checklist format (checkbox, ID, labels, file paths)
+   - **Total task count: MUST be 6-10 tasks (8 tasks ± 2)**
+   - **Project type identified**: Workflow/Automation/Batch Processing/System Integration
+   - Task distribution: Setup (2) → Core Implementation (4) → Integration (2)
+   - Parallel opportunities identified (marked with [P])
+   - Format validation: Confirm ALL tasks follow the simplified checklist format
+   - **CRITICAL**: Verify no forbidden task types are included
 
 Context for task generation: {ARGS}
 
@@ -60,74 +93,59 @@ The tasks.md should be immediately executable - each task must be specific enoug
 
 ## Task Generation Rules
 
-**CRITICAL**: Tasks MUST be organized by user story to enable independent implementation and testing.
+**CRITICAL**: ALL features MUST use the SIMPLIFIED TASK TEMPLATE above. 6-10 tasks total (8 tasks ± 2).
 
-**Tests are OPTIONAL**: Only generate test tasks if explicitly requested in the feature specification or if user requests TDD approach.
+**MANDATORY STRUCTURE**: 
+- Phase 1: Setup (2 tasks)
+- Phase 2: Core Implementation (4 tasks) 
+- Phase 3: Integration (2 tasks)
 
-### Checklist Format (REQUIRED)
+**Tests are FORBIDDEN**: No test tasks allowed in simplified template.
 
-Every task MUST strictly follow this format:
+### Simplified Checklist Format (REQUIRED)
+
+Every task MUST strictly follow this simplified format:
 
 ```text
-- [ ] [TaskID] [P?] [Story?] Description with file path
+- [ ] T00X [P?] Description with file path
 ```
 
 **Format Components**:
 
 1. **Checkbox**: ALWAYS start with `- [ ]` (markdown checkbox)
-2. **Task ID**: Sequential number (T001, T002, T003...) in execution order
-3. **[P] marker**: Include ONLY if task is parallelizable (different files, no dependencies on incomplete tasks)
-4. **[Story] label**: REQUIRED for user story phase tasks only
-   - Format: [US1], [US2], [US3], etc. (maps to user stories from spec.md)
-   - Setup phase: NO story label
-   - Foundational phase: NO story label  
-   - User Story phases: MUST have story label
-   - Polish phase: NO story label
-5. **Description**: Clear action with exact file path
+2. **Task ID**: Sequential number (T001, T002, T003...T008) in execution order
+3. **[P] marker**: Include ONLY if task is parallelizable (different files, no dependencies)
+4. **Description**: Clear action with exact file path
+5. **NO Story labels**: Simplified template does not use [US1], [US2] labels
 
 **Examples**:
 
-- ✅ CORRECT: `- [ ] T001 Create project structure per implementation plan`
-- ✅ CORRECT: `- [ ] T005 [P] Implement authentication middleware in src/middleware/auth.py`
-- ✅ CORRECT: `- [ ] T012 [P] [US1] Create User model in src/models/user.py`
-- ✅ CORRECT: `- [ ] T014 [US1] Implement UserService in src/services/user_service.py`
-- ❌ WRONG: `- [ ] Create User model` (missing ID and Story label)
-- ❌ WRONG: `T001 [US1] Create model` (missing checkbox)
-- ❌ WRONG: `- [ ] [US1] Create User model` (missing Task ID)
-- ❌ WRONG: `- [ ] T001 [US1] Create model` (missing file path)
+- ✅ CORRECT: `- [ ] T001 Review and verify ONES App structure in my-new-project/`
+- ✅ CORRECT: `- [ ] T003 [P] Create event listener service in my-new-project/src/services/event-listener.service.ts`
+- ✅ CORRECT: `- [ ] T007 [P] Wire services together in my-new-project/src/app.module.ts`
+- ❌ WRONG: `- [ ] Create service` (missing ID and file path)
+- ❌ WRONG: `T001 Create service` (missing checkbox)
+- ❌ WRONG: `- [ ] [US1] Create service` (story labels forbidden in simplified template)
 
-### Task Organization
+### Simplified Task Organization
 
-1. **From User Stories (spec.md)** - PRIMARY ORGANIZATION:
-   - Each user story (P1, P2, P3...) gets its own phase
-   - Map all related components to their story:
-     - Models needed for that story
-     - Services needed for that story
-     - Endpoints/UI needed for that story
-     - If tests requested: Tests specific to that story
-   - Mark story dependencies (most stories should be independent)
-   
-2. **From Contracts**:
-   - Map each contract/endpoint → to the user story it serves
-   - If tests requested: Each contract → contract test task [P] before implementation in that story's phase
-   
-3. **From Data Model**:
-   - Map each entity to the user story(ies) that need it
-   - If entity serves multiple stories: Put in earliest story or Setup phase
-   - Relationships → service layer tasks in appropriate story phase
-   
-4. **From Setup/Infrastructure**:
-   - Shared infrastructure → Setup phase (Phase 1)
-   - Foundational/blocking tasks → Foundational phase (Phase 2)
-   - Story-specific setup → within that story's phase
+**MANDATORY**: Use the SIMPLIFIED TASK TEMPLATE structure only:
 
-### Phase Structure
+1. **Phase 1: Setup (2 tasks)**
+   - Project structure verification
+   - Configuration setup (adapt to project type)
 
-- **Phase 1**: Setup (project initialization)
-- **Phase 2**: Foundational (blocking prerequisites - MUST complete before user stories)
-- **Phase 3+**: User Stories in priority order (P1, P2, P3...)
-  - Within each story: Tests (if requested) → Models → Services → Endpoints → Integration
-  - Each phase should be a complete, independently testable increment
-- **Final Phase**: Polish & Cross-Cutting Concerns
+2. **Phase 2: Core Implementation (4 tasks)**
+   - **Workflow**: workflow steps, state management, conditionals
+   - **Automation**: trigger mechanisms, execution logic, scheduler
+   - **Batch Processing**: data processing, file operations, conversion logic
+   - **System Integration**: API calls, data synchronization, protocol adaptation
+   - Basic error handling
+
+3. **Phase 3: Integration (2 tasks)**
+   - Component wiring
+   - Basic logging
+
+**Adapt to project type**: Use appropriate terminology and focus areas based on Workflow/Automation/Batch Processing/System Integration.
 
 

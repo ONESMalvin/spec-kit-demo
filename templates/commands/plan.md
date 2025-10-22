@@ -16,6 +16,44 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## SIMPLIFIED ARCHITECTURE ONLY
+
+**MANDATORY**: All implementations MUST follow this simple pattern:
+
+### Supported Project Types
+- ✅ **Workflow**: workflow automation, task scheduling, trigger mechanisms
+- ✅ **Automation**: automation script, cron jobs, timer tasks, task scheduling
+- ✅ **Batch Processing**: batch data processing, file processing, data conversion
+- ✅ **System Integration**: external system integration, API integration, data synchronization
+
+### Required Architecture (Adapt to Project Type)
+```
+Input → Processing Logic → Output
+```
+
+**Project Type Adaptations**:
+- **Workflow**: Trigger → Workflow Engine → State Update
+- **Automation**: Event → Automation Logic → Action Execution
+- **Batch Processing**: Data Source → Processing Pipeline → Data Output
+- **System Integration**: External System → Integration Logic → Target System
+
+### Forbidden Patterns
+- ❌ Complex service layers
+- ❌ Multiple data models
+- ❌ Advanced caching strategies
+- ❌ Microservice architectures
+- ❌ Complex state management
+
+### Required Components (Maximum 3)
+1. **Input Handler**: Handle input/triggers (adapt to project type)
+2. **Processor**: Simple calculation/transformation logic
+3. **Output Handler**: Handle output/actions (adapt to project type)
+
+### Simplified Workflow
+1. **Skip Research Phase**: No research.md needed
+2. **Minimal Design**: Only essential configuration and basic service
+3. **Simple Tasks**: 6-10 tasks total (8 tasks ± 2)
+
 ## Outline
 
 1. **Setup**: Run `{SCRIPT}` from repo root and parse JSON for FEATURE_SPEC, IMPL_PLAN, SPECS_DIR, BRANCH. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
@@ -24,10 +62,11 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
    - Fill Project Overview (mark unknowns as "NEEDS CLARIFICATION")
+   - **Identify project type**: Determine if it's Workflow/Automation/Batch Processing/System Integration
    - Fill Constitution Check section from constitution
    - Evaluate gates (ERROR if violations unjustified)
    - Phase 0: Generate research.md (resolve all NEEDS CLARIFICATION)
-   - Phase 1: Generate data-model.md, contracts/, quickstart.md
+   - Phase 1: Generate data-model.md, contracts/, quickstart.md (adapt to project type)
    - Phase 1: Update agent context by running the agent script
    - Re-evaluate Constitution Check post-design
 
@@ -61,15 +100,20 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 **Prerequisites:** `research.md` complete
 
-1. **Extract entities from feature spec** → `data-model.md`:
-   - Entity name, fields, relationships
+1. **Extract entities from feature spec** → `data-model.md` (adapt to project type):
+   - **Workflow**: Workflow states, transitions, conditions
+   - **Automation**: Automation rules, triggers, actions
+   - **Batch Processing**: Data structures, processing steps, output formats
+   - **System Integration**: Data mappings, API schemas, protocol definitions
    - Validation rules from requirements
    - State transitions if applicable
 
-2. **Generate API contracts** from functional requirements:
-   - For each user action → endpoint
-   - Use standard REST/GraphQL patterns
-   - Output OpenAPI/GraphQL schema to `/contracts/`
+2. **Generate API contracts** from functional requirements (adapt to project type):
+   - **Workflow**: Workflow triggers, state queries, transition endpoints
+   - **Automation**: Automation triggers, execution endpoints, status queries
+   - **Batch Processing**: Data input/output endpoints, processing status
+   - **System Integration**: Integration endpoints, data sync APIs, protocol adapters
+   - Use standard REST API patterns, output schema to `/contracts/`
 
 3. **Agent context update**:
    - Run `{AGENT_SCRIPT}`
