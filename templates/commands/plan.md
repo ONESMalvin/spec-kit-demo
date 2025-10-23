@@ -116,7 +116,17 @@ Input → Processing Logic → Output
    - **System Integration**: Integration endpoints, data sync APIs, protocol adapters
    - Use standard REST API patterns, output schema to `/contracts/`
 
-3. **Agent context update**:
+3. **Generate ONES App manifest** from capability mapping:
+   - Complete`my-new-project/manifest.json` with app metadata, OAuth scopes, event listeners, extension points to meet project type requirements
+     - Extract app metadata (id, name, version, description)
+     - Map OAuth scopes from capability requirements
+     - Configure event listeners from ONES event triggers
+     - Define extension points (settings pages, validators, etc.)
+   - Go to `my-new-project/` directory and run `npm install && npm run validate-manifest` to validate manifest using JSON Schema
+     - Fix error according to the validation report
+   - If there are errors, fix them and run `npm install && npm run validate-manifest` again until the manifest is valid
+
+4. **Agent context update**:
    - Run `{AGENT_SCRIPT}`
    - These scripts detect which AI agent is in use
    - Update the appropriate agent-specific context file

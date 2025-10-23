@@ -58,6 +58,8 @@
 - [ ] All technical decisions are based on official documentation
 - [ ] All field references use the correct ID
 - [ ] All API calls use the correct endpoint
+- [ ] All ONES capabilities are properly declared in manifest
+- [ ] `my-new-project/manifest.json` is completly and validated using JSON Schema
 
 ### Repository and Technology Stack Constraints (Non-negotiable)
 - [ ] Code changes only occur in the `my-new-project/` directory
@@ -107,6 +109,7 @@ specs/[###-feature]/
 │   └── api.yaml         # API contracts (adapt to project type)
 ├── checklists/          # Quality checklists
 │   └── requirements.md  # Specification quality checklist
+├── manifest.json        # ONES App manifest (Phase 1 output)
 └── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
 ```
 
