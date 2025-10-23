@@ -27,7 +27,7 @@
   the iteration process.
 -->
 
-**Project Type**: [Workflow/Automation/Batch Processing/System Integration - determine project type]  
+**Project Type**: [Automation/Batch Processing/System Integration - determine project type]  
 **Performance Goals**: [performance goals, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
 **Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory or NEEDS CLARIFICATION]  
 **Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
@@ -66,7 +66,6 @@
 - [ ] Incremental changes are used and backward compatibility is maintained; destructive changes come with migration and impact assessment (if applicable)
 
 **ONES App Design Check**: 
-- [Good Design] **Workflow**: Are workflow steps clearly defined and state transitions logical?
 - [Good Design] **Automation**: Are automation triggers and actions well-defined?
 - [Good Design] **Batch Processing**: Are data processing steps efficient and error-handled?
 - [Good Design] **System Integration**: Are integration points clearly defined and secure?
@@ -75,20 +74,17 @@
 **Detailed Project Design Checklist** (adapt to project type):
 
 ### Core Design Principles (adapt to project type)
-- [ ] **Workflow**: Clear workflow definition, state management, trigger mechanisms
 - [ ] **Automation**: Efficient automation logic, proper scheduling, error handling
 - [ ] **Batch Processing**: Efficient data processing, proper file handling, error recovery
 - [ ] **System Integration**: Secure integration, proper data mapping, error handling
 
 ### Data Flow Design (adapt to project type)
-- [ ] **Workflow**: Trigger → Workflow Engine → State Update
 - [ ] **Automation**: Event → Automation Logic → Action Execution
 - [ ] **Batch Processing**: Data Source → Processing Pipeline → Data Output
 - [ ] **System Integration**: External System → Integration Logic → Target System
 - [ ] Does not create unnecessary data duplication
 
 ### Design Decision Validation (adapt to project type)
-- [ ] **Workflow**: Can workflow be implemented with standard workflow engine?
 - [ ] **Automation**: Can automation be implemented with standard automation tools?
 - [ ] **Batch Processing**: Can processing be implemented with standard data tools?
 - [ ] **System Integration**: Can integration be implemented with standard integration patterns?
@@ -133,7 +129,7 @@ web/
 
 ```
 
-**Structure Decision**: Choose appropriate ONES App project structure based on project type (Workflow/Automation/Batch Processing/System Integration).
+**Structure Decision**: Choose appropriate ONES App project structure based on project type (Automation/Batch Processing/System Integration).
 
 ## Complexity Tracking
 

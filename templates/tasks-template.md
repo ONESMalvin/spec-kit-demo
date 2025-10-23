@@ -9,7 +9,7 @@ description: "Simplified task list template for feature implementation"
 
 **CRITICAL**: ALL features MUST use this simplified template. 6-10 tasks total (8 tasks ± 2).
 
-**Project Type**: [Workflow/Automation/Batch Processing/System Integration]
+**Project Type**: [Automation/Batch Processing/System Integration]
 
 ## Format: `[ID] [P?] Description`
 - **[P]**: Can run in parallel (different files, no dependencies)
@@ -21,7 +21,7 @@ description: "Simplified task list template for feature implementation"
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
   
   The /speckit.tasks command MUST replace these with actual tasks based on:
-  - Project type identification (Workflow/Automation/Batch Processing/System Integration)
+  - Project type identification (Automation/Batch Processing/System Integration)
   - Feature requirements from plan.md
   - User stories from spec.md (with their priorities P1, P2, P3...)
   
@@ -50,7 +50,6 @@ description: "Simplified task list template for feature implementation"
 **Purpose**: Essential services and logic (adapt to project type)
 
 **Project Type Adaptations**:
-- **Workflow**: workflow steps, state management, conditionals
 - **Automation**: trigger mechanisms, execution logic, scheduler
 - **Batch Processing**: data processing, file operations, conversion logic
 - **System Integration**: API calls, data synchronization, protocol adaptation
@@ -134,7 +133,7 @@ Task: "Add basic logging in my-new-project/src/"
 - [P] tasks = different files, no dependencies
 - **NO Story labels**: Simplified template does not use [US1], [US2] labels
 - **Flexible task count**: TOTAL: 6-10 tasks (8 tasks ± 2) - flexible based on project complexity
-- **Project type adaptation**: Adapt task descriptions based on Workflow/Automation/Batch Processing/System Integration
+- **Project type adaptation**: Adapt task descriptions based on Automation/Batch Processing/System Integration
 - Commit after each task or logical group
 - **Forbidden task types**: Avoid complex data modeling, advanced error handling, performance optimization, security implementation, testing framework setup, deployment configuration, monitoring and alerting
 - Focus on essential functionality only

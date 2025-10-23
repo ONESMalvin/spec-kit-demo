@@ -34,8 +34,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 **TOTAL: 6-10 tasks (8 tasks ± 2) - flexible based on project complexity**
 
 ### Supported Project Types
-- ✅ **Workflow**: workflow automation, task scheduling, trigger mechanisms
-- ✅ **Automation**: automation script,定时任务、触发机制
+- ✅ **Automation**: automation script, cron jobs, timer tasks, task scheduling, event listening
 - ✅ **Batch Processing**: batch data processing, file processing, data conversion
 - ✅ **System Integration**: external system integration, API integration, data synchronization
 
@@ -62,15 +61,15 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Load spec.md and extract user stories with their priorities (P1, P2, P3, etc.)
    - **MANDATORY**: Generate tasks using the SIMPLIFIED TASK TEMPLATE above
    - **CRITICAL**: 6-10 tasks total (8 tasks ± 2) - flexible based on project complexity
-   - **Identify project type**: Determine if it's type of workflow/automation/batch-processing/system-integration
+   - **Identify project type**: Determine if it's type of automation/batch-processing/system-integration
    - Map user stories to the 3-phase structure: Setup (2 tasks) → Core Implementation (4 tasks) → Integration (2 tasks)
-   - Adapt task descriptions based on project type (workflow steps, automation triggers, batch processing, integration endpoints)
+   - Adapt task descriptions based on project type (automation triggers, batch processing, integration endpoints)
    - Ensure all tasks follow the simplified checklist format
    - Focus on essential functionality only - avoid complex features
 
 4. **Generate tasks.md**: Use the SIMPLIFIED TASK TEMPLATE structure, fill with:
    - Correct feature name from plan.md
-   - **Identify project type**: Workflow/Automation/Batch Processing/System Integration
+   - **Identify project type**: Automation/Batch Processing/System Integration
    - **Phase 1: Setup (2 tasks)** - Project structure and configuration
    - **Phase 2: Core Implementation (4 tasks)** - Essential services and logic (adapt to project type)
    - **Phase 3: Integration (2 tasks)** - Wire components and add logging
@@ -81,7 +80,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 5. **Report**: Output path to generated tasks.md and summary:
    - **Total task count: MUST be 6-10 tasks (8 tasks ± 2)**
-   - **Project type identified**: Workflow/Automation/Batch Processing/System Integration
+   - **Project type identified**: Automation/Batch Processing/System Integration
    - Task distribution: Setup (2) → Core Implementation (4) → Integration (2)
    - Parallel opportunities identified (marked with [P])
    - Format validation: Confirm ALL tasks follow the simplified checklist format
@@ -136,8 +135,7 @@ Every task MUST strictly follow this simplified format:
    - Configuration setup (adapt to project type)
 
 2. **Phase 2: Core Implementation (4 tasks)**
-   - **Workflow**: workflow steps, state management, conditionals
-   - **Automation**: trigger mechanisms, execution logic, scheduler
+   - **Automation**: automation script, cron jobs, timer tasks, task scheduling, event listening
    - **Batch Processing**: data processing, file operations, conversion logic
    - **System Integration**: API calls, data synchronization, protocol adaptation
    - Basic error handling
@@ -146,6 +144,6 @@ Every task MUST strictly follow this simplified format:
    - Component wiring
    - Basic logging
 
-**Adapt to project type**: Use appropriate terminology and focus areas based on Workflow/Automation/Batch Processing/System Integration.
+**Adapt to project type**: Use appropriate terminology and focus areas based on Automation/Batch Processing/System Integration.
 
 

@@ -20,22 +20,25 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 **MANDATORY**: All implementations MUST follow this simple pattern:
 
-### Supported Project Types
-- ✅ **Workflow**: workflow automation, task scheduling, trigger mechanisms
+### Supported Project Types (ONES App)
 - ✅ **Automation**: automation script, cron jobs, timer tasks, task scheduling
 - ✅ **Batch Processing**: batch data processing, file processing, data conversion
 - ✅ **System Integration**: external system integration, API integration, data synchronization
 
-### Required Architecture (Adapt to Project Type)
+### Required Architecture (ONES App adapted to Project Type)
 ```
 Input → Processing Logic → Output
 ```
 
 **Project Type Adaptations**:
-- **Workflow**: Trigger → Workflow Engine → State Update
 - **Automation**: Event → Automation Logic → Action Execution
+  - ONES Event → App backend → ONES OpenAPI call
 - **Batch Processing**: Data Source → Processing Pipeline → Data Output
-- **System Integration**: External System → Integration Logic → Target System
+  - ONES User operation(app extension page) → App backend → ONES OpenAPI call
+- **System Integration**: 
+  - External System → App Backend → Integration Logic → ONES OpenAPI call
+  - ONES User operation(ONES native interface or app extension page) → App backend → ONES OpenAPI call
+  - ONES Event → App backend → External System call
 
 ### Forbidden Patterns
 - ❌ Complex service layers
@@ -62,7 +65,7 @@ Input → Processing Logic → Output
 
 3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
    - Fill Project Overview (mark unknowns as "NEEDS CLARIFICATION")
-   - **Identify project type**: Determine if it's Workflow/Automation/Batch Processing/System Integration
+   - **Identify project type**: Determine if it's Automation/Batch Processing/System Integration
    - Fill Constitution Check section from constitution
    - Evaluate gates (ERROR if violations unjustified)
    - Phase 0: Generate research.md (resolve all NEEDS CLARIFICATION)
@@ -101,7 +104,6 @@ Input → Processing Logic → Output
 **Prerequisites:** `research.md` complete
 
 1. **Extract entities from feature spec** → `data-model.md` (adapt to project type):
-   - **Workflow**: Workflow states, transitions, conditions
    - **Automation**: Automation rules, triggers, actions
    - **Batch Processing**: Data structures, processing steps, output formats
    - **System Integration**: Data mappings, API schemas, protocol definitions
@@ -109,7 +111,6 @@ Input → Processing Logic → Output
    - State transitions if applicable
 
 2. **Generate API contracts** from functional requirements (adapt to project type):
-   - **Workflow**: Workflow triggers, state queries, transition endpoints
    - **Automation**: Automation triggers, execution endpoints, status queries
    - **Batch Processing**: Data input/output endpoints, processing status
    - **System Integration**: Integration endpoints, data sync APIs, protocol adapters
