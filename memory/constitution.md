@@ -18,10 +18,26 @@ Sync Impact Report:
 The goal is to implement ONES App. ONES Apps are plugin-style integrations, not independent services; user operations are completely within the ONES interface, with Apps implementing functionality through event responses and OpenAPI calls; unless absolutely necessary, must not create custom APIs that users need to call; prioritize ONES extension points if you want to implement a custom interface; Apps should be transparent to users, with users perceiving no additional complexity.
 
 ### II. ONES Platform Priority & Manifest-Driven Development
-`manifest.json` is the information provided to the ONES open platform for App installation and is the single source of truth for application capabilities; every feature must explicitly reference the corresponding ONES capability configuration in `manifest.json`; all ONES capability declarations must be correctly configured in the manifest; the manifest must pass official schema validation; version updates must synchronously update the manifest; all non-ONES related features must be clearly identified and independent of ONES integration; applications must follow ONES application lifecycle management specifications.
+`manifest.json` is the single source of truth for application capabilities and must be:
 
-### III. Specification Consultation Priority (Non-negotiable)
-Before starting any design or development work, must consult the `/Users/malvin/Coding/appbuilder/ones-specs` directory to validate requirements; select appropriate OpenAPI/Event/Extension/Web SDK capabilities; verify field details; if requirements cannot be mapped to known capabilities or remain unclear after reviewing documentation, must stop the process and seek clarification rather than making assumptions.
+- **Complete**: Every feature must explicitly reference corresponding ONES capability configuration
+- **Valid**: All ONES capability declarations must be correctly configured and pass official schema validation
+- **Synchronized**: Version updates must synchronously update the manifest
+- **Isolated**: Non-ONES features must be clearly identified and independent of ONES integration
+- **Compliant**: Applications must follow ONES application lifecycle management specifications
+
+### III. Pre-Development Specification Validation (Non-negotiable)
+Before starting any design or development work, must:
+
+1. **Consult** `/Users/malvin/Coding/appbuilder/ones-specs` directory to validate requirements
+2. **Select** appropriate OpenAPI/Event/Extension/Web SDK capabilities
+3. **Verify** field details and implementation requirements
+4. **Stop** and seek clarification if requirements cannot be mapped to known capabilities
+
+**CRITICAL WARNING**: 
+- NEVER assume or invent ONES API endpoints, event types, or permission scopes
+- All ONES capabilities MUST be explicitly documented in the specs directory
+- If a required capability is not found, the feature MUST be redesigned or marked as "REQUIRES CLARIFICATION"
 
 ### IV. Incremental Development & Tech Stack Constraints (Non-negotiable)
 - All code changes MUST occur only under the `my-new-project/` directory; modifying platform templates or upper-level scripts is prohibited.

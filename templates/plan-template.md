@@ -41,11 +41,13 @@
 *Before proceeding with any design or development work, complete ONES capability validation.*
 
 **Capability Mapping Requirements**:
-- [ ] `/Users/malvin/Coding/appbuilder/ones-specs` directory is read
-- [ ] Specific event types (e.g., `ones:project:issue:updated`) and event callback structures are determined
-- [ ] Specific API endpoints (e.g., `PUT /openapi/v2/project/issues/{issueID}`) and request/response schemas are determined
-- [ ] Specific oauth scopes (e.g., `read:project:issue`, `write:project:issue`) are determined
-- [ ] Specific extension callback structures (e.g., settings, validators, etc.) are determined
+- [ ] `/Users/malvin/Coding/appbuilder/ones-specs` directory is read and analyzed
+- [ ] Specific event types (e.g., `ones:project:issue:updated`) and event callback structures are determined from official documentation
+- [ ] Specific API endpoints (e.g., `PUT /openapi/v2/project/issues/{issueID}`) and request/response schemas are determined from official documentation
+- [ ] Specific oauth scopes (e.g., `read:project:issue`, `write:project:issue`) are determined from official documentation
+- [ ] Specific extension callback structures (e.g., settings, validators, etc.) are determined from official documentation
+- [ ] **CRITICAL**: NO assumptions or inventions of ONES capabilities - all must be explicitly documented in `/Users/malvin/Coding/appbuilder/ones-specs`
+- [ ] Any undocumented capabilities are marked as "REQUIRES CLARIFICATION" for manual review
 
 **Documentation Requirements**:
 - [ ] `ones-capabilities.md` document is generated
@@ -57,11 +59,13 @@
 
 **Validation Requirements**:
 - [ ] The capability validation script is run to verify compliance
-- [ ] All feature requirements are mapped to specific ONES capabilities
-- [ ] All technical decisions are based on specific ONES capabilities and integration patterns
-- [ ] All API calls use the correct endpoint and request/response schemas
+- [ ] All feature requirements are mapped to specific ONES capabilities from official documentation
+- [ ] All technical decisions are based on specific ONES capabilities and integration patterns from official documentation
+- [ ] All API calls use the correct endpoint and request/response schemas from official documentation
 - [ ] All ONES capabilities are properly declared in `manifest.json`
 - [ ] `my-new-project/manifest.json` is completly and validated using JSON Schema
+- [ ] **CRITICAL**: No assumed or invented ONES capabilities are included in the design
+- [ ] All undocumented capabilities are explicitly marked and require manual review
 
 ### Repository and Technology Stack Constraints (Non-negotiable)
 - [ ] Code changes only occur in the `my-new-project/` directory

@@ -63,7 +63,13 @@ Input → Processing Logic → Output
 
 2. **Load context**: Read FEATURE_SPEC and `/memory/constitution.md`. Load IMPL_PLAN template (already copied).
 
-3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
+3. **CRITICAL: ONES Capability Validation**: Before proceeding with any design work:
+   - **MANDATORY**: Read and analyze `/Users/malvin/Coding/appbuilder/ones-specs` directory
+   - **VERIFY**: All ONES capabilities (API endpoints, event types, OAuth scopes, extension points) are explicitly documented
+   - **REJECT**: Any assumed or invented ONES capabilities - mark as "REQUIRES CLARIFICATION"
+   - **STOP**: If required capabilities are not found in official documentation, redesign feature or seek clarification
+
+4. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
    - Fill Project Overview (mark unknowns as "NEEDS CLARIFICATION")
    - **Identify project type**: Determine if it's Automation/Batch Processing/System Integration
    - Fill Constitution Check section from constitution
@@ -73,7 +79,7 @@ Input → Processing Logic → Output
    - Phase 1: Update agent context by running the agent script
    - Re-evaluate Constitution Check post-design
 
-4. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
+5. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
 
 ## Phases
 
