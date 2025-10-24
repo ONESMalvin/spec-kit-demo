@@ -93,9 +93,19 @@ Input → Processing Logic → Output
    ```
 
 3. **Consolidate findings** in `research.md` using format:
-   - Decision: [what was chosen]
-   - Rationale: [why chosen]
-   - Alternatives considered: [what else evaluated]
+   - Choose the project type: [Automation/Batch Processing/System Integration]
+     - **Automation**: Automation triggers, execution endpoints, status queries
+       - Decision: [what was chosen]
+       - Rationale: [why chosen]
+       - Alternatives considered: [what else evaluated]
+     - **Batch Processing**: Data input/output endpoints, processing status
+       - Decision: [what was chosen]
+       - Rationale: [why chosen]
+       - Alternatives considered: [what else evaluated]
+     - **System Integration**: Integration endpoints, data sync APIs, protocol adapters
+       - Decision: [what was chosen]
+       - Rationale: [why chosen]
+       - Alternatives considered: [what else evaluated]
 
 **Output**: research.md with all NEEDS CLARIFICATION resolved
 
@@ -103,18 +113,24 @@ Input → Processing Logic → Output
 
 **Prerequisites:** `research.md` complete
 
-1. **Extract entities from feature spec** → `data-model.md` (adapt to project type):
+1. **Generate contracts** from functional requirements (adapt to project type):
+   - Use standard REST API patterns generate App self-defined API contracts, output schema to `contracts/api.yaml`
+   - **OpenAPI Call Structures**: (If OpenAPI is used) Generate ONES OpenAPI calls with request/response schemas to `contracts/openapi-structure.yaml`
+     - Extract from capability mapping: specific endpoints, parameters, response formats
+     - Include authentication, error handling, and validation rules
+   - **Event Callback Structures**: (If event subscription is used) Generate event callback data structures
+     - Map event types from capability requirements to callback schemas to `contracts/event-callback-structure.yaml`
+     - Include event data validation and processing rules 
+   - **Extension Callback Structures**: (If extension is used) Generate extension callback structures
+     - Map extension points (settings pages, validators, etc.) to callback schemas to `contracts/extension-callback-structure.yaml`
+     - Include user interaction and data validation structures
+
+2. **Extract entities from feature spec** → `data-model.md` (adapt to project type):
    - **Automation**: Automation rules, triggers, actions
    - **Batch Processing**: Data structures, processing steps, output formats
    - **System Integration**: Data mappings, API schemas, protocol definitions
    - Validation rules from requirements
    - State transitions if applicable
-
-2. **Generate API contracts** from functional requirements (adapt to project type):
-   - **Automation**: Automation triggers, execution endpoints, status queries
-   - **Batch Processing**: Data input/output endpoints, processing status
-   - **System Integration**: Integration endpoints, data sync APIs, protocol adapters
-   - Use standard REST API patterns, output schema to `/contracts/`
 
 3. **Generate ONES App manifest** from capability mapping:
    - Complete`my-new-project/manifest.json` with app metadata, OAuth scopes, event listeners, extension points to meet project type requirements
@@ -133,7 +149,7 @@ Input → Processing Logic → Output
    - Add only new technology from current plan
    - Preserve manual additions between markers
 
-**Output**: data-model.md, /contracts/*, quickstart.md, agent-specific file
+**Output**: contracts/, data-model.md, quickstart.md, manifest.json, agent-specific file
 
 ## Key rules
 

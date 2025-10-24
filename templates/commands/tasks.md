@@ -22,9 +22,9 @@ You **MUST** consider the user input before proceeding (if not empty).
 - [ ] T002 Configure manifest.json for ONES App configuration in my-new-project/manifest.json
 
 ### Phase 2: Core Implementation (4 tasks)
-- [ ] T003 [P] Create core service/component in my-new-project/src/services/
-- [ ] T004 [P] Implement main processing logic in my-new-project/src/services/
-- [ ] T005 [P] Create data handling service in my-new-project/src/services/
+- [ ] T003 [P] Generate App self-defined API contracts in my-new-project/src/app.controller.ts
+- [ ] T004 [P] Create DTOs from YAML(`contracts/*`) structure definitions in my-new-project/src/dto/
+- [ ] T005 [P] Implement core service/component in my-new-project/src/services/
 - [ ] T006 [P] Add basic error handling in my-new-project/src/services/
 
 ### Phase 3: Integration (2 tasks)
@@ -53,7 +53,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 2. **Load design documents**: Read from FEATURE_DIR:
    - **Required**: plan.md (tech stack, libraries, structure), spec.md (user stories with priorities)
-   - **Optional**: data-model.md (entities), contracts/ (API endpoints), research.md (decisions), quickstart.md (test scenarios)
+   - **Optional**: data-model.md (entities), contracts/ (api or structure definitions), research.md (decisions), quickstart.md (test scenarios)
    - Note: Not all projects have all documents. Generate tasks based on what's available.
 
 3. **Execute simplified task generation workflow**:
@@ -71,7 +71,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Correct feature name from plan.md
    - **Identify project type**: Automation/Batch Processing/System Integration
    - **Phase 1: Setup (2 tasks)** - Project structure and configuration
-   - **Phase 2: Core Implementation (4 tasks)** - Essential services and logic (adapt to project type)
+   - **Phase 2: Core Implementation (4 tasks)** - Structure definitions, DTOs, services and logic (adapt to project type)
    - **Phase 3: Integration (2 tasks)** - Wire components and add logging
    - All tasks must follow the simplified checklist format
    - Clear file paths for each task
@@ -135,6 +135,7 @@ Every task MUST strictly follow this simplified format:
    - Configuration setup (adapt to project type)
 
 2. **Phase 2: Core Implementation (4 tasks)**
+   - **Structure Definitions**: Generate TypeScript interfaces from YAML(`contracts/*`) structure definitions
    - **Automation**: automation script, cron jobs, timer tasks, task scheduling, event listening
    - **Batch Processing**: data processing, file operations, conversion logic
    - **System Integration**: API calls, data synchronization, protocol adaptation

@@ -5,7 +5,7 @@
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
 
-**Project Integration**: This template includes capability validation to ensure all features are based on appropriate platform capabilities and integration patterns.
+**Project Integration**: This template includes capability validation to ensure all features are based on appropriate ONES capabilities and integration patterns.
 
 ## Summary
 
@@ -42,23 +42,25 @@
 
 **Capability Mapping Requirements**:
 - [ ] `/Users/malvin/Coding/appbuilder/ones-specs` directory is read
-- [ ] Specific event types (e.g., `ones:project:issue:updated`) are determined
-- [ ] Specific API endpoints (e.g., `PUT /openapi/v2/project/issues/{issueID}`) are determined
-- [ ] Specific field IDs (e.g., `field032` corresponding to story points) are determined
+- [ ] Specific event types (e.g., `ones:project:issue:updated`) and event callback structures are determined
+- [ ] Specific API endpoints (e.g., `PUT /openapi/v2/project/issues/{issueID}`) and request/response schemas are determined
 - [ ] Specific oauth scopes (e.g., `read:project:issue`, `write:project:issue`) are determined
+- [ ] Specific extension callback structures (e.g., settings, validators, etc.) are determined
 
 **Documentation Requirements**:
 - [ ] `ones-capabilities.md` document is generated
 - [ ] `research.md` is updated to include specific ONES capabilities information
-- [ ] `contracts/openapi.yaml` is updated to conform to ONES specification
+- [ ] `contracts/api.yaml` is updated to conform App self-defined API specification
+- [ ] (If OpenAPI is used) `contracts/openapi-structure.yaml` defines all ONES OpenAPI call structures according to ONES OpenAPI specification
+- [ ] (If event subscription is used) `contracts/event-callback-structure.yaml` defines all event callback structures according to ONES event callback specification
+- [ ] (If extension is used) `contracts/extension-callback-structure.yaml` defines all extension callback structures according to ONES extension callback specification  
 
 **Validation Requirements**:
 - [ ] The capability validation script is run to verify compliance
 - [ ] All feature requirements are mapped to specific ONES capabilities
-- [ ] All technical decisions are based on official documentation
-- [ ] All field references use the correct ID
-- [ ] All API calls use the correct endpoint
-- [ ] All ONES capabilities are properly declared in manifest
+- [ ] All technical decisions are based on specific ONES capabilities and integration patterns
+- [ ] All API calls use the correct endpoint and request/response schemas
+- [ ] All ONES capabilities are properly declared in `manifest.json`
 - [ ] `my-new-project/manifest.json` is completly and validated using JSON Schema
 
 ### Repository and Technology Stack Constraints (Non-negotiable)
@@ -102,11 +104,14 @@
 specs/[###-feature]/
 ├── plan.md              # This file (/speckit.plan command output)
 ├── research.md          # Phase 0 output (/speckit.plan command)
-├── platform-capabilities.md # Platform capability mapping (adapt to project type)
+├── ones-capabilities.md # ONES Open Platform capability mapping (adapt to project type)
 ├── data-model.md        # Phase 1 output (/speckit.plan command)
 ├── quickstart.md        # Phase 1 output (/speckit.plan command)
 ├── contracts/           # Phase 1 output (/speckit.plan command)
-│   └── api.yaml         # API contracts (adapt to project type)
+│   ├── api.yaml         # API contracts (adapt to project type)
+│   ├── openapi-structure.yaml      # ONES OpenAPI call structures
+│   ├── event-callback-structure.yaml   # Event subscription callback structures
+│   └── extension-callback-structure.yaml # Extension callback structures (settings, validators, etc.)
 ├── checklists/          # Quality checklists
 │   └── requirements.md  # Specification quality checklist
 ├── manifest.json        # ONES App manifest (Phase 1 output)

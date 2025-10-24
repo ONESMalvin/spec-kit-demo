@@ -50,13 +50,14 @@ description: "Simplified task list template for feature implementation"
 **Purpose**: Essential services and logic (adapt to project type)
 
 **Project Type Adaptations**:
+- **Structure Definitions**: Generate TypeScript interfaces from YAML(`contracts/*`) structure definitions
 - **Automation**: trigger mechanisms, execution logic, scheduler
 - **Batch Processing**: data processing, file operations, conversion logic
 - **System Integration**: API calls, data synchronization, protocol adaptation
 
-- [ ] T003 [P] Create core service/component in my-new-project/src/services/
-- [ ] T004 [P] Implement main processing logic in my-new-project/src/services/
-- [ ] T005 [P] Create data handling service in my-new-project/src/services/
+- [ ] T003 [P] Generate App self-defined API contracts in my-new-project/src/app.controller.ts
+- [ ] T004 [P] Create DTOs from YAML(`contracts/*`) structure definitions in my-new-project/src/dto/
+- [ ] T005 [P] Implement core service/component in my-new-project/src/services/
 - [ ] T006 [P] Add basic error handling in my-new-project/src/services/
 
 ---
@@ -84,12 +85,20 @@ description: "Simplified task list template for feature implementation"
 
 - **T001 → T002**: Project structure must be verified before configuration
 - **T003, T004, T005, T006**: Can run in parallel (marked with [P])
+  - T003: Generate App self-defined API contracts
+  - T004: Create DTOs from YAML(`contracts/*`) structure definitions
+  - T005: Implement core service/component
+  - T006: Add basic error handling
 - **T007, T008**: Can run in parallel (marked with [P]) after Phase 2 completion
 
 ### Parallel Opportunities
 
 - **Phase 1**: T001 and T002 must run sequentially
 - **Phase 2**: T003, T004, T005, T006 can all run in parallel
+  - T003: Generate App self-defined API contracts
+  - T004: Create DTOs from YAML(`contracts/*`) structure definitions
+  - T005: Implement core service/component
+  - T006: Add basic error handling
 - **Phase 3**: T007 and T008 can run in parallel
 
 ---
@@ -100,9 +109,9 @@ description: "Simplified task list template for feature implementation"
 
 ```bash
 # Launch all Core Implementation tasks together:
-Task: "Create core service/component in my-new-project/src/services/"
-Task: "Implement main processing logic in my-new-project/src/services/"
-Task: "Create data handling service in my-new-project/src/services/"
+Task: "Generate App self-defined API contracts in my-new-project/src/app.controller.ts"
+Task: "Create DTOs from YAML(`contracts/*`) structure definitions in my-new-project/src/dto/"
+Task: "Implement core service/component in my-new-project/src/services/"
 Task: "Add basic error handling in my-new-project/src/services/"
 ```
 
@@ -122,6 +131,10 @@ Task: "Add basic logging in my-new-project/src/"
 
 1. Complete Phase 1: Setup (T001 → T002)
 2. Complete Phase 2: Core Implementation (T003, T004, T005, T006 in parallel)
+   - T003: Generate App self-defined API contracts
+   - T004: Create DTOs from YAML(`contracts/*`) structure definitions
+   - T005: Implement core service/component
+   - T006: Add basic error handling
 3. Complete Phase 3: Integration (T007, T008 in parallel)
 4. **VALIDATE**: Test complete feature independently
 
