@@ -68,7 +68,6 @@ When user requests complex features:
 - Generate `ones-capabilities.md` document to record specific ONES capabilities used
 - Update `research.md` to include specific ONES capability information (event types, API endpoints, field IDs, etc.)
 - Update `contracts/openapi.yaml` to conform to ONES official specifications
-- Run `.specify/scripts/bash/validate-ones-capabilities.sh` to verify compliance
 - Complete all ONES capability validation checkpoints in the planning phase (see `.specify/templates/plan-template.md`)
 - If requirements cannot be mapped to known capabilities, must stop and seek clarification
 - Prohibit development based on assumptions; all implementations must be based on official documentation and specific capability mappings
