@@ -41,12 +41,12 @@
 *Before proceeding with any design or development work, complete ONES capability validation.*
 
 **Capability Mapping Requirements**:
-- [ ] `/Users/malvin/Coding/appbuilder/ones-specs` directory is read and analyzed
+- [ ] `/memory/ones-specs` directory is read and analyzed
 - [ ] Specific event types (e.g., `ones:project:issue:updated`) and event callback structures are determined from official documentation
 - [ ] Specific API endpoints (e.g., `PUT /openapi/v2/project/issues/{issueID}`) and request/response schemas are determined from official documentation
 - [ ] Specific oauth scopes (e.g., `read:project:issue`, `write:project:issue`) are determined from official documentation
 - [ ] Specific extension callback structures (e.g., settings, validators, etc.) are determined from official documentation
-- [ ] **CRITICAL**: NO assumptions or inventions of ONES capabilities - all must be explicitly documented in `/Users/malvin/Coding/appbuilder/ones-specs`
+- [ ] **CRITICAL**: NO assumptions or inventions of ONES capabilities - all must be explicitly documented in `/memory/ones-specs`
 - [ ] Any undocumented capabilities are marked as "REQUIRES CLARIFICATION" for manual review
 
 **Documentation Requirements**:

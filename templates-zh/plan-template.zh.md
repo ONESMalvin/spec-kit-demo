@@ -40,7 +40,7 @@
 *在进行任何设计或开发工作之前，完成 ONES 能力验证。*
 
 **能力映射要求**:
-- [ ] 已查阅 `/Users/malvin/Coding/appbuilder/ones-specs` 目录
+- [ ] 已查阅 `/memory/ones-specs` 目录
 - [ ] 已确定具体的事件类型（如 `ones:project:issue:updated`）
 - [ ] 已确定具体的API端点（如 `PUT /openapi/v2/project/issues/{issueID}`）
 - [ ] 已确定具体的字段ID（如 `field032` 对应故事点）

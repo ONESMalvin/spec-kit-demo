@@ -29,7 +29,7 @@ The goal is to implement ONES App. ONES Apps are plugin-style integrations, not 
 ### III. Pre-Development Specification Validation (Non-negotiable)
 Before starting any design or development work, must:
 
-1. **Consult** `/Users/malvin/Coding/appbuilder/ones-specs` directory to validate requirements
+1. **Consult** `/memory/ones-specs` directory to validate requirements
 2. **Select** appropriate OpenAPI/Event/Extension/Web SDK capabilities
 3. **Verify** field details and implementation requirements
 4. **Stop** and seek clarification if requirements cannot be mapped to known capabilities
@@ -80,7 +80,7 @@ When user requests complex features:
 
 ### ONES Open Platform Capability Validation (Mandatory Prerequisite)
 - Before starting any design or development work, must complete the full ONES capability validation process
-- Consult `/Users/malvin/Coding/appbuilder/ones-specs` directory to determine specific capabilities
+- Consult `/memory/ones-specs` directory to determine specific capabilities
 - Generate `ones-capabilities.md` document to record specific ONES capabilities used
 - Update `research.md` to include specific ONES capability information (event types, API endpoints, field IDs, etc.)
 - Update `contracts/openapi.yaml` to conform to ONES official specifications

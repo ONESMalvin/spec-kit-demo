@@ -64,7 +64,7 @@ Input → Processing Logic → Output
 2. **Load context**: Read FEATURE_SPEC and `/memory/constitution.md`. Load IMPL_PLAN template (already copied).
 
 3. **CRITICAL: ONES Capability Validation**: Before proceeding with any design work:
-   - **MANDATORY**: Read and analyze `/Users/malvin/Coding/appbuilder/ones-specs` directory
+   - **MANDATORY**: Read and analyze `/memory/ones-specs` directory
    - **VERIFY**: All ONES capabilities (API endpoints, event types, OAuth scopes, extension points) are explicitly documented
    - **REJECT**: Any assumed or invented ONES capabilities - mark as "REQUIRES CLARIFICATION"
    - **STOP**: If required capabilities are not found in official documentation, redesign feature or seek clarification
